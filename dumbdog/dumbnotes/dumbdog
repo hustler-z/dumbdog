@@ -1,0 +1,13 @@
+#################################################################
+DUMBDOG
+#################################################################
+
+dumbdog is derived from rust_shyper.
+
+-
+qemu-system-aarch64 -machine virt,virtualization=on,gic-version=2 -m 4g \
+        -cpu cortex-a57 -smp 4 -display none -global virtio-mmio.force-legacy=false \
+        -kernel dumbdog.bin -serial mon:stdio  \
+        -drive file="rootfs.ext4",if=none,format=raw,id=x0 \
+        -device virtio-blk-device,drive=x0,bus=virtio-mmio-bus.25
+-

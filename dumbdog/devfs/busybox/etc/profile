@@ -1,0 +1,12 @@
+ulimit -S -c 0 > /dev/null 2>&1
+
+USER="dumbdog"
+LOGNAME=$USER
+PS1='(dumbdog) '
+PATH=$PATH
+HOSTNAME='bin/hostname'
+
+alias ll='ls -lah'
+alias irqinfo='cat /proc/interrupts'
+
+export USER LOGNAME PS1 PATH

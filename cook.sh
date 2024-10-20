@@ -28,7 +28,6 @@ cmds:
     mrproper                    remove previous configuration
     tags                        tags for better code read
                                 experience
-    vdog                        Boot kernel with vdog hypervisor
 -----------------------------------------------------------------
 
 "
@@ -100,6 +99,11 @@ kernel_menuconfig() {
     fi
 }
 
+# TODO
+kernel_on_qemu() {
+    echo "[cook] Booting the Kernel with QEMU"
+}
+
 build() {
     if [ -z $KPATH ];then
         echo "[cook] Kernel path must needed (./kernel.sh -h for more information)"
@@ -134,6 +138,9 @@ build() {
             ;;
         mrproper)
             remove_prev_config
+            ;;
+        qemu)
+            kernel_on_qemu
             ;;
         *)
             usage
